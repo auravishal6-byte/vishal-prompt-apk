@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishal Prompt — AI Prompt Optimizer for Accurate Answers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span>Vishal Prompt</span>
+      </a>
+      <div class="nav-links">
+        <a href="#optimizer" class="nav-link active">Optimizer</a>
+        <a href="#presets" class="nav-link">Presets</a>
+        <a href="#guide" class="nav-link">Guide</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="badge">⚡ Transform Simple Ideas into Master Prompts</div>
+      <h1 class="hero-title">Get Static, Highly Accurate AI Responses Every Time</h1>
+      <p class="hero-desc">Turn vague or simple inputs into structured, expert-level system prompts engineered to eliminate hallucinations and maximize depth.</p>
+    </section>
+    <section id="optimizer" class="optimizer-section">
+      <div class="card optimizer-card">
+        <div class="optimizer-header">
+          <h2>Prompt Optimizer</h2>
+          <span class="subtext">Configure your target output and input your raw idea</span>
+        </div>
+        <form id="optimizer-form" onsubmit="return false;">
+          <div class="controls-grid">
+            <div class="control-group">
+              <label for="mode-select">Target Domain / Goal</label>
+              <select id="mode-select">
+                <option value="accuracy" selected>🎯 Maximum Accuracy &amp; Factuality</option>
+                <option value="code">💻 Code &amp; Technical Architecture</option>
+                <option value="reasoning">🧠 Step-by-Step Reasoning (Chain of Thought)</option>
+                <option value="concise">⚡ Concise &amp; Direct Executive Summary</option>
+                <option value="explain">💡 Deep Explanation &amp; Analogy (EL5 to Expert)</option>
+                <option value="creative">🎨 Creative Writing &amp; Content Refinement</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="format-select">Desired Output Format</label>
+              <select id="format-select">
+                <option value="markdown" selected>Markdown with Headings &amp; Bullet Points</option>
+                <option value="table">Tabular Data / Comparison Matrix</option>
+                <option value="json">Structured JSON Schema</option>
+                <option value="step-list">Numbered Step-by-Step Action Plan</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="raw-prompt">Enter Your Normal Prompt</label>
+            <textarea id="raw-prompt" placeholder="e.g., Explain how quantum computing works and why it matters..." rows="4" required></textarea>
+            <div class="sample-chips">
+              <span class="chip-label">Quick Try:</span>
+              <button type="button" class="chip-btn" data-text="Write a Python script to scrape weather data safely">Weather Scraper</button>
+              <button type="button" class="chip-btn" data-text="Explain machine learning algorithms to a business manager">ML for Managers</button>
+              <button type="button" class="chip-btn" data-text="How do I prepare for a senior frontend developer interview?">Interview Prep</button>
+            </div>
+          </div>
+          <button id="optimize-btn" type="submit" class="primary-btn">
+            <svg width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            Optimize Prompt Now
+          </button>
+        </form>
+        <div id="output-wrapper" class="output-wrapper hidden">
+          <div class="output-header">
+            <div class="output-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>Optimized Master Prompt</span></div>
+            <div class="action-buttons"><button id="copy-btn" class="secondary-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span id="copy-text">Copy Prompt</span></button></div>
+          </div>
+          <div class="output-box" id="output-text" contenteditable="false"></div>
+          <div class="breakdown-box"><h3>⚡ Why This Prompt Works Better:</h3><ul id="breakdown-list"><li><strong>Role &amp; Persona Defined:</strong> Forces the AI to adopt an expert perspective.</li><li><strong>Boundary Constraints:</strong> Limits assumptions, hallucinations, and fluff.</li><li><strong>Structured Formatting:</strong> Requires clear headers and standardized sections.</li></ul></div>
+        </div>
+      </div>
+    </section>
+    <section id="presets" class="presets-section">
+      <div class="section-header"><h2>Curated Prompt Templates</h2><p>Ready-to-use premium prompts for common tasks</p></div>
+      <div class="presets-grid">
+        <div class="preset-card" data-preset="code-review"><div class="preset-badge">Engineering</div><h3>Senior Code Reviewer</h3><p>Analyzes code snippets for performance bottlenecks, security flaws, and best practices.</p><button class="use-preset-btn">Load Template</button></div>
+        <div class="preset-card" data-preset="deep-explain"><div class="preset-badge">Learning</div><h3>First-Principles Explainer</h3><p>Breaks down complex scientific or technical topics using foundational principles and zero jargon.</p><button class="use-preset-btn">Load Template</button></div>
+        <div class="preset-card" data-preset="bug-hunter"><div class="preset-badge">Debugging</div><h3>Root Cause Bug Hunter</h3><p>Systematically isolates software bugs by asking targeted questions and proposing hypotheses.</p><button class="use-preset-btn">Load Template</button></div>
+        <div class="preset-card" data-preset="exec-summary"><div class="preset-badge">Business</div><h3>Executive Brief Generator</h3><p>Converts long articles or reports into actionable key takeaways with decision matrices.</p><button class="use-preset-btn">Load Template</button></div>
+      </div>
+    </section>
+    <section id="guide" class="guide-section">
+      <div class="section-header"><h2>Vishal's Prompting Principles</h2><p>The 4 core rules for deterministic, accurate AI output</p></div>
+      <div class="guide-grid">
+        <div class="guide-card"><div class="guide-num">01</div><h3>Specify Output Schema</h3><p>Never let the model guess layout. Dictate headings, bullet formatting, or JSON schema upfront.</p></div>
+        <div class="guide-card"><div class="guide-num">02</div><h3>Provide Negative Constraints</h3><p>Explicitly state what NOT to do (e.g., "Do not include conversational filler or introduction").</p></div>
+        <div class="guide-card"><div class="guide-num">03</div><h3>Chain-of-Thought Enforcement</h3><p>Ask the model to explain its reasoning step-by-step before delivering final conclusions.</p></div>
+        <div class="guide-card"><div class="guide-num">04</div><h3>Set Strict Grounding Rules</h3><p>Instruct the model to cite confidence levels and explicitly state when data is unavailable.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="footer-container"><p>© <span id="year"></span> <strong>Vishal Prompt</strong> — Crafting precise AI prompts for better answers.</p></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
